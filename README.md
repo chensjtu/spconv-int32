@@ -67,6 +67,21 @@
 
 Check [spconv 2.x algorithm introduction](docs/spconv2_algo.pdf) to understand sparse convolution algorithm in spconv 2.x!
 
+## Important Notice
+
+**INT32 Data Range Limitation**: The original spconv convolution operation raises an error when encountering int32 data ranges. When the mesh is very large, this error is inevitable. This codebase includes a fix for this issue using a coarse method, allowing it to work with data ranges exceeding int32. **Please note that this is a development version of the code - do not use for training purposes**. The fix has been verified to work correctly in testing scenarios.
+
+If you find this fix helpful for your research, please cite:
+
+```latex
+@article{wu2025unilat3d,
+  title={UniLat3D: Geometry-Appearance Unified Latents for Single-Stage 3D Generation},
+  author={Wu, Guanjun and Fang, Jiemin and Yang, Chen and Li, Sikuang and Yi, Taoran and Lu, Jia and Zhou, Zanwei and Cen, Jiazhong and Xie, Lingxi and Zhang, Xiaopeng and Wei, Wei and Liu, Wenyu and Wang, Xinggang and Tian, Qi},
+  journal={arXiv preprint arXiv:2509.25079},
+  year={2025}
+}
+```
+
 ## WARNING
 
 Use spconv >= cu114 if possible. cuda 11.4 can compile greatly faster kernel in some situation.
