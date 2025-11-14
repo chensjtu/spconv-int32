@@ -23,7 +23,7 @@ import re
 # Package meta-data.
 NAME = 'spconv'
 RELEASE_NAME = NAME
-deps = ["cumm"]
+deps = []
 cuda_ver = os.environ.get("CUMM_CUDA_VERSION", "")
 
 # is_ci_build = cuda_ver != ""
@@ -39,9 +39,9 @@ if cuda_ver:
     cuda_ver_str = cuda_ver.replace(".", "") # 10.2 to 102
 
     RELEASE_NAME += "-cu{}".format(cuda_ver_str)
-    deps = ["cumm-cu{}>=0.7.11, <0.8.0".format(cuda_ver_str)]
+    deps = []
 else:
-    deps = ["cumm>=0.7.11, <0.8.0"]
+    deps = []
 
 
 
